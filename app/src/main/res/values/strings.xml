@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MyApplication1stPrac</string>
     <string name="Greeting">Hey!</string>
+    <string name= "rollDice">Roll</string>
+    <string name="rollDiceRule"></string>
+    <string name="playerName">Enter Your Name</string>
 </resources>
