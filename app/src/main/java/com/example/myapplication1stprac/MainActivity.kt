@@ -1,24 +1,29 @@
 package com.example.myapplication1stprac
 
+import android.content.Context
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.inputmethod.InputMethodManager
+import android.widget.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var diceImg: ImageView
     lateinit var numberText: TextView
+    lateinit var editPlayerName: EditText
+    lateinit var playerNameTV: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         diceImg = findViewById(R.id.diceImg)
         numberText = findViewById(R.id.numberText)
+        editPlayerName = findViewById(R.id.editPlayerName)
+        playerNameTV = findViewById(R.id.playerName)
         val button: Button = findViewById(R.id.button1)
         button.setOnClickListener { rollDice() }
+        val updateButton = findViewById<Button>(R.id.updatePlayerName)
+        updateButton.setOnClickListener { updatePlayerName(it) }
     }
     /*   private fun sayHi(){
            Toast.makeText(this, "Hello Button",
@@ -42,4 +47,16 @@ class MainActivity : AppCompatActivity() {
         numberText.visibility = View.VISIBLE
         Toast.makeText(this, randomNumb.toString(), Toast.LENGTH_SHORT).show()
     }
+
+    private fun updatePlayerName(view: View) {
+        playerNameTV.text = editPlayerName.text.toString()
+        editPlayerName.text.clear()
+        editPlayerName.clearFocus()
+
+        //hide keyboard after update
+        var imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+
+    }
+
 }

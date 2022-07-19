@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editPlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:hint="@string/editPlayerName" />
+
+        <Button
+            android:id="@+id/updatePlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/updatePlayerName" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/diceImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        app:srcCompat ="@drawable/empty_dice"
-        tools:src="@drawable/dice_1"/>
+        app:srcCompat="@drawable/empty_dice"
+        tools:src="@drawable/dice_1" />
 
     <Button
         android:id="@+id/button1"
@@ -23,13 +42,14 @@
         android:layout_gravity="center_horizontal"
         android:text="Roll" />
 
+
     <TextView
         android:id="@+id/numberText"
+        style="@style/nameStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="TextView"
-        style="@style/nameStyle" />
+        android:text="@string/rollDice" />
 
     <TextView
         android:id="@+id/playerName"
@@ -37,8 +57,26 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center_horizontal"
-        android:padding="@dimen/cardview_compat_inset_shadow"
-        android:text="@string/playerName" />
+        android:hint="@string/playerName"
+        android:padding="@dimen/cardview_compat_inset_shadow" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rulesText"
+                style="@style/nameStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/rollDiceRule" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>
